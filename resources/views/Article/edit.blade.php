@@ -45,6 +45,9 @@
                                 }@endif
                             @endforeach
                       </select>
+                      <div class="invalid-feedback">
+                        {{$errors->first('category_id')}}
+                        </div>
                     </div>
                     <div class="form-group">
                             <label>Description</label>

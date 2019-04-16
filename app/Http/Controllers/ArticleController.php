@@ -56,8 +56,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(),[
-            'title' => "required|min:4",
-            'image' => 'required|image|mimes:jpg,png,jpeg',
+            'title'                 => "required|min:4",
+            'image'                 => 'required|image|mimes:jpg,png,jpeg',
+            'short_description'     => "required|min:5",
+            'image'                 => "required",
+            'content'               => "required|min:5",
+            'category_id'           => "required",
         ])->validate();
 
         //MENGAMBIL FILE IMAGE DARI FORM
@@ -73,7 +77,7 @@ class ArticleController extends Controller
             //MAKA FOLDER TERSEBUT AKAN DIBUAT
             File::makeDirectory($this->path);
         }
-
+        
         
         //MEMBUAT NAME FILE DARI GABUNGAN TIMESTAMP DAN UNIQID()
         $fileNameimage      = 'article-image'. '_' . uniqid() . '.' . $fileimage->getClientOriginalExtension();
@@ -139,8 +143,12 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {   
         \Validator::make($request->all(),[
-            'title' => "required|min:4",
-            "image" => "required",
+            'title'                 => "required|min:4",
+            "image"                 => "required",
+            'short_description'     => "required|min:10",
+            'image'                 => "required",
+            'content'               => "required|min:20",
+            
         ])->validate();
 
         $article = Article::find($id);
@@ -148,15 +156,8 @@ class ArticleController extends Controller
         $fileimage      = $request->file('image');
         $filethumbnail  = $request->file('image');
 
-        if(is_dir($article->image))
-            {
-                unlink(storage_path('app/public/images/article/'.$article->image));
-                unlink(storage_path('app/public/images/article/'.$article->thumbnail));
-            }
-            else
-            {
-                echo "Directory does not exist";
-            }
+        unlink(storage_path('app/public/images/article/'.$article->image));
+        unlink(storage_path('app/public/images/article/'.$article->thumbnail));
         
             $canvas            = Image::canvas(100, 100);
             $resizeImage       = Image::make($filethumbnail)->resize(100, 100, function($constraint) {

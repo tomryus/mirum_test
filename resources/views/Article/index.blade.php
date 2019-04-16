@@ -47,13 +47,13 @@
             <td>{{$item->category->category_name}}</td>
             <td>{{$item->short_description}}</td>
             <td>
-                 <a href={{route('article.edit',$item->id)}} class="btn btn-info btn-sm"> Edit</a>
-                <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm">Delete
+                  <a href={{route('article.edit',$item->id)}} class="btn btn-info btn-sm"> Edit</a>
+                  <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger btn-sm">Delete
                   <form method="POST" action={{route('article.destroy',$item->id) }}  onsubmit="return confirm('Delete this article permanently?')"
-                </a>
+                  </a>
                 @csrf
                 @method('DELETE')
-              </form> 
+                </form> 
             </td>
             <?php
             $no++;

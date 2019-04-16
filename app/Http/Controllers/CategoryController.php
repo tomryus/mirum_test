@@ -97,6 +97,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        \Validator::make($request->all(),[
+            'category_name' => "required|min:4|Unique:categories",
+        ])->validate();
+        
         $category = Category::find($id);
         $slug = str_slug($request->get('category_name'));
         $category ->category_name = $request->get('category_name');

@@ -17,9 +17,9 @@
                 <div class="box-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nama Kategori</label>
-                    <input autocomplete="off" value="{{$yangdikirim->category_name}}" type="text" class="form-control {{$errors->first('nama_category') ? "is-invalid" : ""}} " name="category_name" placeholder="Nama_category">
+                    <input autocomplete="off" value="{{$yangdikirim->category_name}}" type="text" class="form-control {{$errors->first('category_name') ? "is-invalid" : ""}} " name="category_name" placeholder="Nama_category">
                     <div class="invalid-feedback">
-                    {{$errors->first('nama_category')}}
+                    {{$errors->first('category_name')}}
                     </div>
                 </div>
                 </div>

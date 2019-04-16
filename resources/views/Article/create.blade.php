@@ -26,16 +26,22 @@
 
                     <div class="form-group">
                         <label>Gambar</label>
-                        <input type="file" class="form-control" name="image">
+                        <input type="file" class="form-control {{$errors->first('image') ? "is-invalid" : ""}}" name="image">
+                        <div class="invalid-feedback">
+                          {{$errors->first('image')}}
+                        </div>
                     </div>
                     <div class="form-group">
                       <label>Kategori Artikel</label>
-                      <select name="category_id" class="form-control">
+                      <select name="category_id" class="form-control  {{$errors->first('category_id') ? "is-invalid" : ""}} ">
                           <option></option>
                           @foreach ($yangdikirim as $item)
                             <option value={{$item->id}}>{{$item->category_name}}</option>
                           @endforeach
                       </select>
+                      <div class="invalid-feedback">
+                        {{$errors->first('category_id')}}
+                        </div>                     
                     </div>
                     <div class="form-group">
                         <label>Description</label>
@@ -48,7 +54,11 @@
                         <label>Isi Artikel</label>
                         <textarea name="content" id="editor1" class="textarea" placeholder="Place some text here"
                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                              {{old('content')}}
                       </textarea>
+                      <div class="invalid-feedback">
+                        {{$errors->first('content')}}
+                        </div>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Tambah Artikel</button>
