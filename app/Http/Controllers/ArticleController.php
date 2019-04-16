@@ -58,9 +58,9 @@ class ArticleController extends Controller
         \Validator::make($request->all(),[
             'title'                 => "required|min:4",
             'image'                 => 'required|image|mimes:jpg,png,jpeg',
-            'short_description'     => "required|min:5",
+            'short_description'     => "required|min:2",
             'image'                 => "required",
-            'content'               => "required|min:5",
+            'content'               => "required|min:2",
             'category_id'           => "required",
         ])->validate();
 
@@ -145,9 +145,9 @@ class ArticleController extends Controller
         \Validator::make($request->all(),[
             'title'                 => "required|min:4",
             "image"                 => "required",
-            'short_description'     => "required|min:10",
+            'short_description'     => "required|min:3",
             'image'                 => "required",
-            'content'               => "required|min:20",
+            'content'               => "required|min:3",
             
         ])->validate();
 

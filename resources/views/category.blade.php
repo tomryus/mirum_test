@@ -30,16 +30,14 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            @foreach ($post as $item)
-                
-            @endforeach
             <div class="col-md-8">
+                    @foreach ($post as $item)
                 <div class="row">
 
                     <!-- post -->
                     <div class="col-md-12">
                         <div class="post post-row">
-                            <a class="post-img" href="blog-post.html"><img src="{{asset('storage/images/article/'. $item->image)}}" alt=""></a>
+                            <a class="post-img" href="{{route('front.blogpost', $item->slug)}}"><img src="{{asset('storage/images/article/'. $item->image)}}" alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
                                     <a class="post-category cat-2" href="{{route('front.category', $item->category_id)}}">{{$item->Category->category_name}}</a>
@@ -53,6 +51,7 @@
                     </div>
                     <!-- /post -->
                 </div>
+                @endforeach
             </div>
 
             <div class="col-md-4">

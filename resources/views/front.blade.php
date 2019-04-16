@@ -33,7 +33,7 @@
             @foreach ($article as $item)
             <div class="col-md-6">
                 <div class="post post-thumb">
-                    <a class="post-img" href="#"><img src={{asset('storage/images/article/'. $item->image)}} alt="" width="300" height="300"></a>
+                    <a class="post-img" href="{{route('front.blogpost', $item->slug)}}"><img src={{asset('storage/images/article/'. $item->image)}} alt="" width="300" height="300"></a>
                     <div class="post-body">
                         <div class="post-meta">
                             <a class="post-category cat-2" href="category.html">{{$item->category->category_name}}</a>
@@ -75,7 +75,7 @@
                     <div class="col-md-8">
                         <div class="post">
                             @foreach ($article2 as $item)                       
-                            <a class="post-img" href="blog-post.html"><img src="{{asset('storage/images/article/'. $item->image)}}"
+                            <a class="post-img" href="{{route('front.blogpost', $item->slug)}}"><img src="{{asset('storage/images/article/'. $item->image)}}"
                                     alt=""></a>
                             <div class="post-body">
                                 <div class="post-meta">
