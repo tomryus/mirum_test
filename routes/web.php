@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::resource('changepassword', 'PasswordController');
     Route::get('changepassword', 'PasswordController@change')->name('password.change');
-    Route::post('changepassword', 'PasswordController@update')->name('password.update');
+    Route::put('changepassword', 'PasswordController@update')->name('password.update');
     
 });
 

@@ -37,7 +37,7 @@
                     <div class="main-post">
                         <h3>{{$post->title}}</h3>
                         <figure class="figure-img">
-                            <img class="img-responsive" src="{{asset('storage/images/article/'. $post->image. )}}" alt="">
+                            <img class="img-responsive" src="{{asset('storage/images/article/'. $post->image )}}" alt="">
                             <figcaption>{{$post->short_description}}</figcaption>
                         </figure>
                         {!! $post->content !!}

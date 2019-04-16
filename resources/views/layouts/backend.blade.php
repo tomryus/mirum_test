@@ -29,7 +29,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="{{route('home')}}" class="logo">
         <span class="logo-mini"><b>A</b>LT</span>
         <span class="logo-lg">Laravel Blog<b>Admin</b>LTE</span>
         </a>
@@ -95,8 +95,8 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
                 <li class="treeview">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li><a href={{route('article.index')}}><i class="fa fa-pencil"></i>Artikel</a></li>
+                <li><a href="{{route('home')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="{{route('article.index')}}"><i class="fa fa-pencil"></i>Artikel</a></li>
                 <li><a href="{{route('category.index')}}"><i class="fa fa-book"></i>Category</a></li>
                 <li><a href="{{ route('password.change')}}"><i class="fa fa-key"></i>Change Password</a></li>
                 <li><a href="#"><i class="fa fa-gears"></i>Setting</a></li>

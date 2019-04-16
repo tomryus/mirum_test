@@ -72,7 +72,7 @@
                     <div class="clearfix visible-md visible-lg"></div>
 
                     <!-- post Content-->
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="post">
                             @foreach ($article2 as $item)                       
                             <a class="post-img" href="blog-post.html"><img src="{{asset('storage/images/article/'. $item->image)}}"
@@ -83,7 +83,11 @@
                                     <span class="post-date">{{$item->created_at->diffForHumans()}}</span>
                                 </div>
                                 <h3 class="post-title"><a href="{{route('front.blogpost', $item->slug)}}">{{$item->title}}</a></h3>
-                                <figcaption>{{$item->short_description}}</figcaption>
+                                <figcaption>
+                                        {{ str_limit(strip_tags($item->content), 50) }}
+                                        @if (strlen(strip_tags($item->content)) > 50)
+                                          ... <a href="{{route('front.blogpost', $item->slug)}}" class="btn btn-info btn-sm">Read More</a>
+                                        @endif</figcaption>
                             </div>
                             @endforeach
                         </div>
@@ -94,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <!-- post widget Terkait -->
                 <div class="aside-widget">
                     <div class="section-title">
